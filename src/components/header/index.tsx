@@ -18,7 +18,7 @@ const Index = () => {
   });
 
   return (
-    <header className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-10">
+    <header className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-50">
       <div className="flex justify-between items-center">
         <Menu />
         <Link to="/" className="flex gap-2 items-center">

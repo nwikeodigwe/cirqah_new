@@ -6,7 +6,10 @@ import logo from "@/assets/logo.svg";
 import { client } from "@/sanity";
 import type { Nav } from "@/types/sanity.types";
 
-const Content = () => {
+interface Props {
+  onClick?: () => void;
+}
+const Content = ({ onClick }: Props) => {
   const location = useLocation();
   const [home, setHome] = useState(false);
   const [content, setContent] = useState<Nav | undefined>();
@@ -44,7 +47,7 @@ const Content = () => {
       key={item._key}
       className={clsx("space-y-5", {
         "md:hidden font-semibold": !item.heading,
-        hidden: !home,
+        hidden: item.heading,
       })}
     >
       <li className="font-semibold">{item.heading}</li>
@@ -55,7 +58,9 @@ const Content = () => {
             "text-chicago-300 hover:text-chicago-100": item.heading,
           })}
         >
-          <Link to={`${link.url}`}>{link.label}</Link>
+          <Link onClick={onClick} to={`${link.url}`}>
+            {link.label}
+          </Link>
         </li>
       ))}
     </ul>
@@ -85,9 +90,9 @@ const Content = () => {
             </li>
           </ul>
           {links}
-          <Socials
+          {/* <Socials
             className={clsx("flex space-x-10 justify-center", home && "hidden")}
-          />
+          /> */}
         </div>
       </div>
       <div className="container py-5 px-10 border-t border-chicago-700">

@@ -41,11 +41,11 @@ const Menu = () => {
         >
           <button
             onClick={() => setIsOpen((prev) => !prev)}
-            className="text-2xl absolute top-2 right-2"
+            className="text-2xl absolute top-2 right-3"
           >
             <IoCloseSharp />
           </button>
-          <Content />
+          <Content onClick={() => setIsOpen(false)} />
         </div>
       </div>
     </div>
