@@ -1,0 +1,55 @@
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource/k2d";
+@import "tailwindcss";
+
+@font-face {
+  src: url("./assets/fonts/ibm.woff2") format("woff2-variations");
+  font-family: "Instrument Sans";
+  font-style: normal;
+}
+
+@theme {
+  --color-green: #2fa220;
+  --color-light-green: #c2f7bb;
+  --color-white-green: #fafff9;
+  --color-chicago-50: #f1f1f1;
+  --color-chicago-100: #dcdcdc;
+  --color-chicago-200: #bdbdbd;
+  --color-chicago-300: #a1a1a1;
+  --color-chicago-400: #898989;
+  --color-chicago-500: #727272;
+  --color-chicago-600: #5c5c5c;
+  --color-chicago-700: #4b4b4b;
+  --color-chicago-800: #353535;
+  --color-chicago-900: #1d1d1d;
+  --color-chicago-950: #111111;
+  --font-instrument-sans: "Instrument Sans", "san-serif";
+  --font-kd2: "k2d", "san-serif";
+}
+
+@layer base {
+  body {
+    @apply font-instrument-sans bg-white-green;
+  }
+}
+
+.divider {
+  @apply relative text-chicago-700;
+}
+
+.divider:after {
+  @apply content-[""] h-[1px] bg-chicago-200 absolute top-1/2 left-0 translate-x-0 w-[calc(50%_-_20px)] -translate-y-1/2;
+}
+
+.divider:before {
+  @apply content-[""] h-[1px] bg-chicago-200 absolute translate-x-0 w-[calc(50%_-_20px)] top-1/2 right-0 -translate-y-1/2;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
