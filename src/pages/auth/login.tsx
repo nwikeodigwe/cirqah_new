@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import Form from "./form";
-import { client } from "@/sanity";
 import type { Auth } from "@/types/sanity.types";
+import { animate, variant } from "@/transition";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { client } from "@/sanity";
+import Form from "./form";
 
 const Login = () => {
   const [content, setContent] = useState<Auth>();
@@ -17,13 +19,26 @@ const Login = () => {
     getContent();
   }, []);
   return (
-    <div className="flex flex-col space-y-3 max-w-xl mx-auto">
-      <h2 className="text-3xl font-medium text-center">{content?.title}</h2>
-      <p className="text-sm text-center text-chicago-700">
+    <motion.div
+      variants={variant}
+      initial="closed"
+      animate="open"
+      className="flex flex-col space-y-3 max-w-xl mx-auto"
+    >
+      <motion.h2
+        variants={animate}
+        className="text-3xl font-medium text-center"
+      >
+        {content?.title}
+      </motion.h2>
+      <motion.p
+        variants={animate}
+        className="text-sm text-center text-chicago-700"
+      >
         {content?.subheading}
-      </p>
+      </motion.p>
       <Form data={content} />
-    </div>
+    </motion.div>
   );
 };
 

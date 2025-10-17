@@ -1,6 +1,7 @@
 import useGetEvents from "@/hooks/useGetEvents";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { animate } from "@/transition";
 
 const Event = () => {
   const events = useGetEvents();
@@ -9,15 +10,7 @@ const Event = () => {
 
   return (
     <motion.div
-      initial={{ x: 50, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ y: 50, opacity: 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        duration: 3,
-      }}
+      variants={animate}
       className="bg-white-green p-5 w-full md:max-w-[550px] md:justify-self-end shadow "
     >
       <div className="flex gap-3">

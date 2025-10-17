@@ -1,11 +1,18 @@
 import type { Variants } from "framer-motion";
 
-export const parent: Variants = {
-  hidden: { x: 50, opacity: 0 },
-  show: {
-    x: 0,
+export const variant: Variants = {
+  open: {
     opacity: 1,
     transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+  closed: {
+    opacity: 0,
+    transition: {
+      when: "beforeChildren",
       staggerChildren: 0.15,
       delayChildren: 0.2,
     },
@@ -13,10 +20,10 @@ export const parent: Variants = {
 };
 
 export const animate: Variants = {
-  hidden: { opacity: 0, x: 50 },
-  show: {
+  open: {
     opacity: 1,
     x: 0,
-    transition: { duration: 3, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { duration: 1, ease: "easeInOut" },
   },
+  closed: { opacity: 0, x: 50 },
 };

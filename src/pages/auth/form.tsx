@@ -11,6 +11,8 @@ import clsx from "clsx";
 import Google from "./google";
 import { Link } from "react-router";
 import type { Auth } from "@/types/sanity.types";
+import { motion } from "motion/react";
+import { animate, variant } from "@/transition";
 
 interface Props {
   data?: Auth;
@@ -54,16 +56,18 @@ const Form = ({ data }: Props) => {
   };
 
   return (
-    <div className="space-y-7 mt-16">
-      <div
+    <motion.div variants={variant} className="space-y-7 mt-16">
+      <motion.div
+        variants={animate}
         className={clsx(
           "p-2 text-sm border border-green text-green bg-green/10 font-medium",
           !success && "hidden"
         )}
       >
         {success}
-      </div>
-      <form
+      </motion.div>
+      <motion.form
+        variants={animate}
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-7 items-center"
       >
@@ -81,10 +85,15 @@ const Form = ({ data }: Props) => {
         >
           {data?.submit}
         </Button>
-      </form>
-      <div className="divider text-center">Or</div>
+      </motion.form>
+      <motion.div variants={animate} className="divider text-center">
+        Or
+      </motion.div>
       <Google text={data?.google} />
-      <p className="text-center text-xs text-chicago-600 mt-10">
+      <motion.p
+        variants={animate}
+        className="text-center text-xs text-chicago-600 mt-10"
+      >
         By signing up, you’re joining a community that celebrates creators,
         empowers fans, and fuels culture. You agree to our{" "}
         <Link to="#" className="text-green">
@@ -95,8 +104,8 @@ const Form = ({ data }: Props) => {
           Privacy Policy
         </Link>
         .
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 

@@ -5,6 +5,8 @@ import Creator from "./creator";
 import { RadioGroup } from "radix-ui";
 import { client } from "@/sanity";
 import type { Onboard } from "@/types/sanity.types";
+import { motion } from "motion/react";
+import { animate, variant } from "@/transition";
 
 const Index = () => {
   const action = useContext(context);
@@ -29,14 +31,25 @@ const Index = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center space-y-3">
-        <h2 className="text-center text-4xl font-medium leading-10">
+      <motion.div
+        variants={variant}
+        initial="closed"
+        animate="open"
+        className="flex flex-col items-center space-y-3"
+      >
+        <motion.h2
+          variants={animate}
+          className="text-center text-5xl font-medium leading-10"
+        >
           {content?.title}
-        </h2>
-        <p className="text-center text-sm text-chicago-700">
+        </motion.h2>
+        <motion.p
+          variants={animate}
+          className="text-center text-sm text-chicago-700"
+        >
           {content?.subheading}
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
       <RadioGroup.Root
         defaultValue="default"
         aria-label="View density"
@@ -55,20 +68,27 @@ const Index = () => {
           <Creator action={handleNextStep} data={content?.items?.[1]} />
         </RadioGroup.Item>
       </RadioGroup.Root>
-      <div className="flex justify-between gap-5">
-        <button
+      <motion.div
+        variants={variant}
+        initial="closed"
+        animate="open"
+        className="flex justify-between gap-5"
+      >
+        <motion.button
+          variants={animate}
           onClick={handleNextStep}
           className="py-2 px-10 border border-green text-green"
         >
           Skip
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          variants={animate}
           onClick={handleNextStep}
           className="py-2 px-10 bg-green text-white"
         >
           Continue
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </>
   );
 };
