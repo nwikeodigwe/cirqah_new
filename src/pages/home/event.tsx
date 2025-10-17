@@ -1,12 +1,25 @@
 import useGetEvents from "@/hooks/useGetEvents";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 
 const Event = () => {
   const events = useGetEvents();
   const random = Math.floor(Math.random() * events.length);
   const event = events[random];
+
   return (
-    <div className="bg-white-green p-5 w-full md:max-w-[550px] md:justify-self-end shadow ">
+    <motion.div
+      initial={{ x: 50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ y: 50, opacity: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 3,
+      }}
+      className="bg-white-green p-5 w-full md:max-w-[550px] md:justify-self-end shadow "
+    >
       <div className="flex gap-3">
         <div
           className={`shadow size-28 bg-chicago-100 col-span-1 bg-[url(${event?.image_url})]`}
@@ -29,7 +42,7 @@ const Event = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
+import { motion } from "motion/react";
 import { Link } from "react-router";
 import { client } from "@/sanity";
 import Menu from "./menu";
@@ -18,19 +19,53 @@ const Index = () => {
   });
 
   return (
-    <header className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-50">
-      <div className="flex justify-between items-center">
+    <motion.header
+      initial="hide"
+      animate="show"
+      className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-50"
+    >
+      <motion.div
+        initial={{ x: 50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+          duration: 3,
+        }}
+        className="flex justify-between items-center"
+      >
         <Menu />
-        <Link to="/" className="flex gap-2 items-center">
-          <img src={logo} className="size-10" />
-          <span className="text-white text-2xl font-kd2 uppercase">Cirqah</span>
-        </Link>
+        <motion.div>
+          <Link to="/" className="flex gap-2 items-center">
+            <img src={logo} className="size-10" />
+            <span className="text-white text-2xl font-kd2 uppercase">
+              Cirqah
+            </span>
+          </Link>
+        </motion.div>
         <Nav />
-        <Link to="/auth" className="bg-green px-5 py-2 text-white-green shadow">
-          {cta}
-        </Link>
-      </div>
-    </header>
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ y: 50, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            duration: 3,
+          }}
+        >
+          <Link
+            to="/auth"
+            className="bg-green px-5 py-2 text-white-green shadow"
+          >
+            {cta || "Get Started"}
+          </Link>
+        </motion.div>
+      </motion.div>
+    </motion.header>
   );
 };
 

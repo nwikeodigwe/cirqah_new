@@ -47,7 +47,7 @@ const Content = ({ onClick }: Props) => {
       key={item._key}
       className={clsx("space-y-5", {
         "md:hidden font-semibold": !item.heading,
-        hidden: item.heading,
+        "hidden md:block": item.heading,
       })}
     >
       <li className="font-semibold">{item.heading}</li>
