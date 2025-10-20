@@ -11,6 +11,7 @@ import Email, { type Schema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const Index = () => {
+  const {email} = useSelector((state: RootState) => state.user)
   const {
     register,
     handleSubmit,
@@ -82,6 +83,7 @@ const Index = () => {
                     <Fieldset.Input
                       {...register("email")}
                       className="p-3 rounded-sm border-chicago-200/50 bg-chicago-100/20"
+                      defaultValue={email}
                     />
                     <Fieldset.Error>{errors.email?.message}</Fieldset.Error>
                   </Fieldset.Root>

@@ -1,21 +1,9 @@
+import { redirect } from "react-router";
 import supabase from "@/supabase";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 
-const Auth = () => {
-  const [isAuth, setAuth] = useState<boolean>(false);
-  useEffect(() => {
-    const auth = async () => {
-      const { data } = await supabase.auth.getSession();
-      setAuth(!!data.session);
-    };
-
-    auth();
-  });
-
-  const navigate = useNavigate();
-
-  if (!isAuth === false) return navigate("/");
+const Auth = async () => {
+  const { data } = await supabase.auth.getSession();
+  if (!data.session) throw redirect("/");
 };
 
 export default Auth;

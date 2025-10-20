@@ -23,7 +23,7 @@ const Projects = ({ data }: Props) => {
         <DropdownMenu.Content className="bg-chicago-900/70 py-5 px-3 space-y-2 text-white-green ">
           {data.children?.map((link, i) => (
             <DropdownMenu.Item key={i}>
-              <Link to={`/${link.url}`} className="py-3">
+              <Link to={`${link.url}`} className="py-3">
                 {link.label}
               </Link>
             </DropdownMenu.Item>

@@ -1,12 +1,14 @@
-import type { Database } from "@/types/database.types";
-import { DropdownMenu } from "radix-ui";
-import { useEffect, useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoNotificationsOffOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
+import { DropdownMenu } from "radix-ui";
 import supabase from "@/supabase";
 import clsx from "clsx";
-import { IoNotificationsOffOutline } from "react-icons/io5";
+
+import type { Database } from "@/types/database.types";
+import type { RootState } from "@/store";
+
 
 type Ntfc = Database["public"]["Tables"]["notifications"]["Row"];
 

@@ -33,6 +33,10 @@
   }
 }
 
+.container {
+  @apply px-5
+}
+
 .divider {
   @apply relative text-chicago-700;
 }

@@ -3,12 +3,14 @@ import Root from "./pages";
 import DRoot from "./pages/dashboard/layout";
 import Home from "./pages/home";
 import Auth from "./pages/auth";
+import Logout from "./pages/auth/logout";
 import Events from "./pages/events";
 import Event from "./pages/events/event";
 import Checkout from "./pages/events/event/checkout";
 import Dashboard from "./pages/dashboard";
 import DTickets from "./pages/dashboard/tickets";
 import DEvents from "./pages/dashboard/events";
+import Settings from "./pages/dashboard/settings";
 import SEmail from "./pages/dashboard/settings/email";
 import SPayment from "./pages/dashboard/settings/payment";
 import SAccount from "./pages/dashboard/settings/accounts";
@@ -32,7 +34,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    children: [{ index: true, Component: Auth }],
+    children: [
+      { index: true, Component: Auth },
+      { path: "logout", Component: Logout },
+    ],
   },
   {
     path: "/dashboard",
@@ -45,9 +50,10 @@ const router = createBrowserRouter([
       {
         path: "settings",
         children: [
+          { index: true, Component: Settings },
           { path: "email", Component: SEmail },
           { path: "payment", Component: SPayment },
-          { path: "account", Component: SAccount },
+          { path: "accounts", Component: SAccount },
           { path: "preferences", Component: SPreference },
           { path: "data", Component: SData },
           { path: "delete", Component: SDelete },

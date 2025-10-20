@@ -108,15 +108,13 @@ const Sidebar = () => {
                   {
                     "font-medium bg-chicago-100/20": isActive(link.url),
                   }
-                )}
-              >
+                )} >
                 <span
                   className={clsx({
                     "text-white p-1 rounded-md bg-chicago-900": isActive(
                       link.url
                     ),
-                  })}
-                >
+                  })}           >
                   {link.icon}
                 </span>{" "}
                 <span>{link.label}</span>
