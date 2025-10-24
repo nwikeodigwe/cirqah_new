@@ -5,6 +5,7 @@ export type Auth = {
   name: string;
   email_verified: boolean;
   phone_verified: boolean;
+  isAuth: boolean;
   sub: string;
 };
 
@@ -14,6 +15,7 @@ const initialState: Auth = {
   email: "",
   email_verified: false,
   phone_verified: false,
+  isAuth: false,
 };
 
 const Slice = createSlice({

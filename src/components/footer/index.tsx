@@ -17,6 +17,11 @@ const Index = () => {
     setHome(isHome);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (!home) setIsOpen(true)
+    if(home) setIsOpen(false)
+  }, [home])
+
   // Set up Intersection Observer to monitor content div visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,7 +80,7 @@ const Index = () => {
         )}
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {isOpen && home && (
+        {isOpen && (
           <motion.div
             ref={contentRef}
             key="content"

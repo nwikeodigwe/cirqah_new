@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { client } from "@/sanity";
 import Menu from "./menu";
 import Nav from "./nav";
 import { animate, variant } from "@/transition";
+import User from "./user";
 
 const Index = () => {
-  const [cta, setCta] = useState();
-
-  useEffect(() => {
-    async function getCta() {
-      const data = await client.fetch(`*[_type == "nav"][0]{navButton}`);
-      setCta(data.navButton);
-    }
-
-    getCta();
-  });
 
   return (
     <motion.header
@@ -43,12 +32,7 @@ const Index = () => {
         </motion.div>
         <Nav />
         <motion.div variants={animate}>
-          <Link
-            to="/auth"
-            className="bg-green px-5 py-3 text-white-green shadow"
-          >
-            {cta || "Get Started"}
-          </Link>
+          <User />
         </motion.div>
       </motion.div>
     </motion.header>
