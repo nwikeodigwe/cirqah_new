@@ -16,7 +16,7 @@ class Document {
       "application/pdf",
       "image/avif",
     ];
-    const maxSize = 20 * 1024 * 1024; // 20MB
+    const maxSize = 20 * 1024 * 1024;
 
     return allowedTypes.includes(file.type) && file.size <= maxSize;
   }

@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Auth from "./pages/auth";
 import Logout from "./pages/auth/logout";
 import Events from "./pages/events";
+import Create from "./pages/events/create";
 import Event from "./pages/events/event";
 import Checkout from "./pages/events/event/checkout";
 import Dashboard from "./pages/dashboard";
@@ -27,7 +28,13 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       { index: true, Component: Home },
-      { path: "events", Component: Events },
+      {
+        path: "events",
+        children: [
+          { index: true, Component: Events },
+          { path: "create", Component: Create },
+        ],
+      },
       { path: "events/:event", Component: Event },
       { path: "events/:event/checkout", Component: Checkout },
     ],
@@ -41,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    loader: AuthMiddleware,
+    // loader: AuthMiddleware,
     Component: DRoot,
     children: [
       { index: true, Component: Dashboard },

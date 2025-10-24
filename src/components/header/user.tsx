@@ -36,7 +36,7 @@ const User = () => {
       {!auth ? (
         <Link
           to="/auth"
-          className="bg-green-500 px-5 py-2 text-white shadow hover:bg-green-600"
+          className="bg-green px-5 py-2 text-white shadow hover:bg-green/70"
         >
           {cta}
         </Link>
