@@ -58,7 +58,7 @@ const Notification = () => {
         </span>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className="rounded-md w-[300px] bg-chicago-900 text-white text-sm mt-3 mr-3">
+        <DropdownMenu.Content className="rounded-md w-[300px] bg-chicago-900 text-white text-sm mt-3 mr-3 z-30">
           <div
             className={clsx(
               "px-2 py-8 flex flex-col items-center justify-center space-y-2"

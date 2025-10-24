@@ -20,7 +20,7 @@ const Cart = () => {
         <CiShoppingCart />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className="rounded-md bg-chicago-900 mt-3 mr-3 text-white text-sm">
+        <DropdownMenu.Content className="rounded-md bg-chicago-900 mt-3 mr-3 text-white text-sm z-30">
           <div
             className={clsx(
               "px-2 py-8 w-[300px] flex flex-col items-center justify-center space-y-2",

@@ -6,9 +6,9 @@ import { CiStar } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import clsx from "clsx";
 import { type ReactNode, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
+import clsx from "clsx";
 
 const links = [
   {
@@ -17,20 +17,32 @@ const links = [
     icon: <MdOutlineDashboard className="text-2xl" />,
   },
   {
-    label: "Browse Events",
-    url: "/events",
+    label: "Marketplace",
+    url: "/marketplace",
     icon: <MdOutlineExplore className="text-2xl" />,
+  },
+  {
+    label: "Events",
+    url: "/dashboard/events",
+    icon: <CiStar className="text-2xl" />,
+    sub: [
+      {
+        label: "My Events",
+        url: "/dashboard/events",
+        icon: <IoSettingsOutline className="text-2xl" />,
+      },
+      {
+        label: "Disover",
+        url: "/events",
+      },
+    ],
   },
   {
     label: "My Tickets",
     url: "/dashboard/tickets",
     icon: <LuTicketSlash className="text-2xl" />,
   },
-  {
-    label: "My Events",
-    url: "/dashboard/events",
-    icon: <CiStar className="text-2xl" />,
-  },
+
   {
     label: "Settings",
     url: "/dashboard/settings",
@@ -79,8 +91,16 @@ type Link = {
 };
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openStates, setOpenStates] = useState<Record<number, boolean>>({});
   const location = useLocation();
+
+  const toggleOpen = (index: number) => {
+    setOpenStates((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   const isActive = (url: string) => {
     let active = false;
     active = location.pathname === url;
@@ -91,7 +111,7 @@ const Sidebar = () => {
     <div className="relative h-[96vh] col-span-3 border-r border-chicago-100 overflow-y-scroll">
       <div className="sticky top-0 flex items-center container bg-white z-10 py-5">
         <Link to="/">
-          <h2 className="text-4xl">Cirqah</h2>
+          <h2 className="text-4xl uppercase font-kd2">Cirqah</h2>
         </Link>
       </div>
       <div className="flex flex-col justify-between h-full pb-5 mt-5">
@@ -99,22 +119,22 @@ const Sidebar = () => {
           {links.map((link, i) => (
             <li key={i}>
               <Link
-                onClick={
-                  link.sub ? () => setIsOpen((prev) => !prev) : undefined
-                }
+                onClick={link.sub ? () => toggleOpen(i) : undefined}
                 to={!link.sub ? link.url : "#"}
                 className={clsx(
                   "relative flex items-center gap-5 py-3 container hover:bg-chicago-100/20 transition-all duration-150",
                   {
                     "font-medium bg-chicago-100/20": isActive(link.url),
                   }
-                )} >
+                )}
+              >
                 <span
                   className={clsx({
                     "text-white p-1 rounded-md bg-chicago-900": isActive(
                       link.url
                     ),
-                  })}           >
+                  })}
+                >
                   {link.icon}
                 </span>{" "}
                 <span>{link.label}</span>
@@ -122,12 +142,12 @@ const Sidebar = () => {
                   <FaChevronRight
                     className={clsx(
                       "absolute top-1/2 -translate-y-2 right-3 text-chicago-300 transition-all duration-150",
-                      { "rotate-90": isOpen }
+                      { "rotate-90": openStates[i] }
                     )}
                   />
                 )}
               </Link>
-              <ul className={clsx("flex flex-col", { hidden: !isOpen })}>
+              <ul className={clsx("flex flex-col", { hidden: !openStates[i] })}>
                 {link.sub?.map((sub, i) => (
                   <li key={i}>
                     <Link
