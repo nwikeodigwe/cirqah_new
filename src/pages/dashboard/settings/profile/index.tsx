@@ -78,7 +78,6 @@ const Profile = () => {
   });
 
   const onSubmit = async (data: Schema) => {
-    console.log(data.phone);
     try {
       if (user.id) {
         let avatar_url = null;

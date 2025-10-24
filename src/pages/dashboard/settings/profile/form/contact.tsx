@@ -105,7 +105,7 @@ const Contact = () => {
               </option>
             ))}
           </select>
-          <div className="w-[255px]">
+          <div className="w-full">
             <Fieldset.Input
               {...register("home_phone")}
               className="col-span-9  p-3 rounded-sm border-chicago-200/50 bg-chicago-100/20"
@@ -132,7 +132,7 @@ const Contact = () => {
               </option>
             ))}
           </select>
-          <div className="w-[255px]">
+          <div className="w-full">
             <Fieldset.Input
               {...register("phone")}
               className="col-span-9  p-3 rounded-sm border-chicago-200/50 bg-chicago-100/20"

@@ -57,7 +57,7 @@ const User = () => {
                     <DropdownMenu.Portal>
                         <DropdownMenu.Content className="bg-chicago-900/70 py-5 px-3 space-y-2 text-white-green ">
                             <DropdownMenu.Item>
-                                <Link to="/dashboard/">Dashboard</Link>
+                                <Link to="/dashboard">Dashboard</Link>
                             </DropdownMenu.Item>
                             <DropdownMenu.Item>
                                 <Link to="/auth/logout">Logout</Link>
