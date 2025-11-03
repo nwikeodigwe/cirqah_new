@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Outlet /> 
       <Footer />
     </>
   );

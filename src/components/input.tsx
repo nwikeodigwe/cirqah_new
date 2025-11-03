@@ -19,7 +19,7 @@ const Input = ({ className, icon, error, ref, ...props }: Props) => {
         {icon}
         <input
           ref={ref}
-          className="border-none outline-none focus:outline-none"
+          className="border-none outline-none focus:outline-none w-full"
           {...props}
         />
         {error && (

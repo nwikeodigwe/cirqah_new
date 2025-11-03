@@ -13,13 +13,13 @@ const Index = () => {
       variants={variant}
       initial="closed"
       animate="open"
-      className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-50"
+      className="absolute top-0 left-0 right-0 container px-5 py-3 bg-chicago-950/20 z-50 w-full"
     >
       <motion.div
         variants={variant}
         initial="closed"
         animate="open"
-        className="flex justify-between items-center"
+        className="flex justify-between items-center w-full"
       >
         <Menu />
         <motion.div variants={animate}>
