@@ -24,6 +24,8 @@ import NotFound from "./pages/404";
 
 import AuthMiddleware from "./middleware/auth.middleware";
 import Privacy from "./pages/privacy";
+import Academy from "./pages/academy";
+import Terms from "./pages/terms";
 
 const router = createBrowserRouter([
   {
@@ -32,8 +34,10 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "/update", Component: Update },
+      { path: "/academy", Component: Academy },
       { path: "/about", Component: About },
       { path: "/privacy", Component: Privacy },
+      { path: "/terms", Component: Terms },
       {
         path: "events",
         children: [

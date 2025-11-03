@@ -23,7 +23,7 @@ export const animate: Variants = {
   open: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1, ease: "easeInOut" },
+    transition: { duration: 0.3, ease: "easeInOut" },
   },
   closed: { opacity: 0, x: 50 },
 };

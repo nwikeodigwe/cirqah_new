@@ -39,8 +39,8 @@ export default defineType({
               url: 'projects',
               label: 'Projects',
               children: [
-                {url: 'about', label: 'About Cirqah'},
-                {url: 'academy', label: "Cirqah's Academy"},
+                {url: '/about', label: 'About Cirqah'},
+                {url: '/academy', label: "Cirqah's Academy"},
               ],
             },
           ],
