@@ -9,7 +9,7 @@ const Plan = () => {
         start planning now
       </p>
       <Link
-        to="/event/create"
+        to="/events/create"
         className="px-4 py-2 bg-chicago-900 rounded-md shadow-md text-white text-sm hover:scale-105 active:scale-95 transition-all duration-150 inline-block"
       >
         Create your event

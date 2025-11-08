@@ -1,4 +1,3 @@
-import { createBrowserRouter } from "react-router";
 import Root from "./pages";
 import DRoot from "./pages/dashboard/layout";
 import Home from "./pages/home";
@@ -26,6 +25,10 @@ import AuthMiddleware from "./middleware/auth.middleware";
 import Privacy from "./pages/privacy";
 import Academy from "./pages/academy";
 import Terms from "./pages/terms";
+import Careers from "./pages/careers";
+
+import { createBrowserRouter } from "react-router";
+import Partners from "./pages/partners";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,8 @@ const router = createBrowserRouter([
       { path: "/update", Component: Update },
       { path: "/academy", Component: Academy },
       { path: "/about", Component: About },
+      { path: "/partnership", Component: Partners },
+      { path: "/careers", Component: Careers },
       { path: "/privacy", Component: Privacy },
       { path: "/terms", Component: Terms },
       {
