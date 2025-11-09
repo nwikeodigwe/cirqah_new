@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "/update", Component: Update },
-      { path: "/academy", Component: Academy },
+      { path: "/acedemy", Component: Academy },
       { path: "/about", Component: About },
       { path: "/partnership", Component: Partners },
       { path: "/careers", Component: Careers },
@@ -63,12 +63,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    loader: AuthMiddleware,
+    // loader: AuthMiddleware,
     Component: DRoot,
     children: [
       { index: true, Component: Dashboard },
       { path: "tickets", Component: DTickets },
-      { path: "events", Component: DEvents },
+      { path: "events", children: [{index: true, Component: DEvents},{path: ":event_id" , Component: DEvents},] },
       {
         path: "settings",
         children: [

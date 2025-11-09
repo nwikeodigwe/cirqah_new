@@ -1,19 +1,20 @@
+import clsx from "clsx";
+import Card from "./card";
+import supabase from "@/supabase";
+import DatePicker from "react-datepicker";
+import Fieldset from "@/components/fieldset";
+import { GrChatOption } from "react-icons/gr";
+import { MdAttachMoney } from "react-icons/md";
+import { GiMusicalNotes } from "react-icons/gi";
+import useGetCities from "@/hooks/useGetCities";
+import { PiTelevisionBold } from "react-icons/pi";
+import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import useGeoLocation from "@/hooks/useGetLocation";
-import useGetCities from "@/hooks/useGetCities";
-import DatePicker from "react-datepicker";
-import { Slider, DropdownMenu, Checkbox } from "radix-ui";
-import { GiMusicalNotes } from "react-icons/gi";
-import { GrChatOption } from "react-icons/gr";
-import { PiTelevisionBold } from "react-icons/pi";
-import { CiCalendarDate, CiLocationOn } from "react-icons/ci";
-import Fieldset from "@/components/fieldset";
-import { IoSearchOutline } from "react-icons/io5";
-import clsx from "clsx";
-import { MdAttachMoney } from "react-icons/md";
 import type { Database } from "@/types/database.types";
-import supabase from "@/supabase";
-import Card from "./card";
+import { Slider, DropdownMenu, Checkbox } from "radix-ui";
+import { CiCalendarDate, CiLocationOn } from "react-icons/ci";
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
