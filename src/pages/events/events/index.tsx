@@ -15,6 +15,8 @@ import type { Database } from "@/types/database.types";
 import supabase from "@/supabase";
 import Card from "./card";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 export type Event = "GIG" | "TALK" | "SOCIAL";
 type EventsForCity = Database["public"]["Tables"]["events"]["Row"];
 
@@ -128,7 +130,7 @@ const Index = () => {
           >
             <DropdownMenu.Trigger
               asChild
-              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 cursor-pointer bg-chicago-900 shadow text-white-green"
+              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 cursor-pointer shadow text-white-green"
             >
               <span className="flex items-center gap-2">
                 <CiLocationOn className="text-2xl" />
@@ -173,7 +175,7 @@ const Index = () => {
           <DropdownMenu.Root>
             <DropdownMenu.Trigger
               asChild
-              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 outline-none cursor-pointer bg-chicago-900 shadow text-white-green"
+              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 outline-none cursor-pointer shadow text-white-green"
             >
               <span className="flex items-center gap-2 ">
                 <CiCalendarDate className="text-2xl" />
@@ -199,7 +201,7 @@ const Index = () => {
           <DropdownMenu.Root>
             <DropdownMenu.Trigger
               asChild
-              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 cursor-pointer bg-chicago-900 shadow text-white-green"
+              className="px-5 py-3 bg-chicago-200/10 hover:bg-chicago-200/30 transition-all duration-150 cursor-pointer shadow text-white-green"
             >
               <span className="flex items-center gap-2">
                 <MdAttachMoney className="text-2xl" />
@@ -249,7 +251,7 @@ const Index = () => {
               onCheckedChange={(checked) =>
                 handleCheckedChange(option.event, !!checked)
               }
-              className="data-[state=checked]:bg-white-green data-[state=checked]:text-chicago-900 data-[state=checked]:text-chicago-900 data-[state=unchecked]:text-white-green data-[state=unchecked]:bg-chicago-200/10  cursor-pointer size-20 flex items-center justify-center flex-col gap-1 transition-all duration-150 bg-chicago-900 shadow text-white-green"
+              className="data-[state=checked]:bg-white-green data-[state=checked]:text-chicago-900 data-[state=unchecked]:text-white-green data-[state=unchecked]:bg-chicago-200/10  cursor-pointer size-20 flex items-center justify-center flex-col gap-1 transition-all duration-150 bg-chicago-900 shadow text-white-green"
               id="GIG"
             >
               {option.icon}

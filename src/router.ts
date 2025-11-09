@@ -63,7 +63,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    // loader: AuthMiddleware,
+    loader: AuthMiddleware,
     Component: DRoot,
     children: [
       { index: true, Component: Dashboard },

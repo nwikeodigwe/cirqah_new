@@ -1,6 +1,7 @@
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router";
 import type { Feature } from "./index";
+import clsx from "clsx";
 
 interface Props {
   feature: Feature;
@@ -10,9 +11,9 @@ const Events = ({ feature }: Props) => {
   return (
     <Link
       to={`/events/${feature?.event.id}`}
-      className="relative flex-col bg-chicago-100 items-start gap-2 p-2 shadow-sm rounded-md min-w-[250px] hover:scale-105 transition-all duration-150"
+      className="relative flex-col items-start gap-2 p-2 shadow-sm rounded-md min-w-[250px] hover:scale-105 transition-all duration-150"
     >
-      <div className="relative h-52 w-full bg-chicago-200 rounded-md">
+      <div className={clsx("relative h-52 w-full bg-gradient-to-t from-black/70 to-transparent rounded-md, `bg-[url('${feature?.event.image_url}')] bg-cover bg-center")}>
         <button className="absolute bottom-3 right-3">
           <MdFavoriteBorder />
         </button>

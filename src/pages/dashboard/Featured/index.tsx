@@ -21,16 +21,15 @@ const Index = () => {
       try {
         const { data, error } = await supabase
           .from("featured_events")
-          .select(`*`)
+          .select(`*, event:events(*)`)
           .limit(20);
 
-          console.log({data, error});
-        // if (!error) {
-        //   const validEvents = data.filter(
-        //     (item): item is Feature => item.event !== null
-        //   );
-        //   setFeatures(validEvents);
-        // }
+        if (!error) {
+          const validEvents = data.filter(
+            (item): item is Feature => item.event !== null
+          );
+          setFeatures(validEvents);
+        }
       } catch (err) {
         console.error(err);
       }
@@ -83,7 +82,7 @@ const Index = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex overflow-x-scroll items-center gap-3 h-[calc(100% + 10px)] py-2"></div>
+      {/* <div className="flex overflow-x-scroll items-center gap-3 h-[calc(100% + 10px)] py-2"></div> */}
     </div>
   );
 };

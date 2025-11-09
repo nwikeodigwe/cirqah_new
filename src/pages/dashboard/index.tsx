@@ -1,5 +1,6 @@
 import Overview from "./overview";
 import Featured from "./Featured";
+// import Categories from "./categories";
 // import Plan from "./plan";
 
 const Index = () => {
@@ -9,6 +10,7 @@ const Index = () => {
       {/* <Plan /> */}
       <Overview />
       <Featured/>
+      {/* <Categories /> */}
     </div>
   );
 };
