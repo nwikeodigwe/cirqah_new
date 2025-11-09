@@ -1,25 +1,25 @@
 import Root from "./pages";
-import DRoot from "./pages/dashboard/layout";
+import Auth from "./pages/auth";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Update from "./pages/update";
-import Auth from "./pages/auth";
-import Logout from "./pages/auth/logout";
 import Events from "./pages/events";
-import Create from "./pages/events/create";
 import Event from "./pages/events/event";
-import Checkout from "./pages/events/event/checkout";
 import Dashboard from "./pages/dashboard";
-import DTickets from "./pages/dashboard/tickets";
+import Create from "./pages/events/create";
+import DRoot from "./pages/dashboard/layout";
 import DEvents from "./pages/dashboard/events";
+import DTickets from "./pages/dashboard/tickets";
 import Settings from "./pages/dashboard/settings";
+import SData from "./pages/dashboard/settings/data";
+import Checkout from "./pages/events/event/checkout";
 import SEmail from "./pages/dashboard/settings/email";
+import SDelete from "./pages/dashboard/settings/delete";
 import SPayment from "./pages/dashboard/settings/payment";
 import SAccount from "./pages/dashboard/settings/accounts";
 import SPreference from "./pages/dashboard/settings/preferences";
-import SData from "./pages/dashboard/settings/data";
-import SDelete from "./pages/dashboard/settings/delete";
 import NotFound from "./pages/404";
+import Upload from "./pages/dashboard/upload";
 
 import AuthMiddleware from "./middleware/auth.middleware";
 import Privacy from "./pages/privacy";
@@ -29,6 +29,7 @@ import Careers from "./pages/careers";
 
 import { createBrowserRouter } from "react-router";
 import Partners from "./pages/partners";
+import Logout from "./pages/auth/logout";
 
 const router = createBrowserRouter([
   {
@@ -63,12 +64,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    // loader: AuthMiddleware,
+    loader: AuthMiddleware,
     Component: DRoot,
     children: [
       { index: true, Component: Dashboard },
       { path: "tickets", Component: DTickets },
-      { path: "events", children: [{index: true, Component: DEvents},{path: ":event_id" , Component: DEvents},] },
+      { path: "upload", Component: Upload },
+      {
+        path: "events",
+        children: [
+          { index: true, Component: DEvents },
+          { path: ":event_id", Component: DEvents },
+        ],
+      },
       {
         path: "settings",
         children: [
