@@ -1,9 +1,9 @@
+import Event from "./events";
+import supabase from "@/supabase";
+import { Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import Event from "./events";
 import type { Database } from "@/types/database.types";
-import supabase from "@/supabase";
 
 import "swiper/swiper-bundle.css";
 import clsx from "clsx";
@@ -21,22 +21,26 @@ const Index = () => {
       try {
         const { data, error } = await supabase
           .from("featured_events")
-          .select(`*,event:events (*)`)
-          .limit(10);
+          .select(`*`)
+          .limit(20);
 
-        if (!error) {
-          const validEvents = data.filter(
-            (item): item is Feature => item.event !== null
-          );
-          setFeatures(validEvents);
-        }
+          console.log({data, error});
+        // if (!error) {
+        //   const validEvents = data.filter(
+        //     (item): item is Feature => item.event !== null
+        //   );
+        //   setFeatures(validEvents);
+        // }
       } catch (err) {
         console.error(err);
       }
     }
 
     getFeaturedEvents();
-  });
+  }, []);
+
+  console.log({features});
+
   return (
     <div className={clsx("mt-10", !features?.length && "hidden")}>
       <h3 className="text-xl mb-2">Featured Events</h3>

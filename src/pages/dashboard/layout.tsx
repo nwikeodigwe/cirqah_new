@@ -1,23 +1,21 @@
 import { Outlet } from "react-router";
-import { useState } from "react";
-import Profile from "./profile";
+// import { useState } from "react";
+// import Profile from "./profile";
 import Sidebar from "./sidebar";
 import Header from "./header";
-import clsx from "clsx";
+// import clsx from "clsx";
 
 const Layout = () => {
-  const [isProfileOpen, setIsProfileOpen] = useState<boolean>(true);
+  // const [isProfileOpen, setIsProfileOpen] = useState<boolean>(true);
 
   return (
-    <div className="grid grid-cols-16 h-screen overflow-x-clip">
+    <div className="grid grid-cols-16 h-screen overflow-x-clip bg-chicago-900 text-chicago-100">
       <Sidebar />
       <div className="col-span-13">
         <Header />
-        <div className="col-span-9 flex">
-          <div className={clsx("transition-all duration-300 flex-1")}>
+        <div className="col-span-9 flex transition-all duration-300 flex-1">
             <Outlet />
-          </div>
-          <Profile isOpen={isProfileOpen} handleClick={setIsProfileOpen} />
+          {/* <Profile isOpen={isProfileOpen} handleClick={setIsProfileOpen} /> */}
         </div>
       </div>
     </div>

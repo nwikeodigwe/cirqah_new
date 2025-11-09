@@ -1,13 +1,13 @@
-import { Link } from "react-router";
-import Tickets from "./tickets";
+import clsx from "clsx";
 import Saved from "./saved";
 import Footer from "./footer";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
-import clsx from "clsx";
+import Tickets from "./tickets";
 import Picture from "./picture";
-import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
+import { Link } from "react-router";
+import type { RootState } from "@/store";
+import { useSelector } from "react-redux";
 import type { Dispatch, SetStateAction } from "react";
+import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 
 interface Props {
   isOpen: boolean;
@@ -21,7 +21,7 @@ const Profile = ({isOpen, handleClick}: Props) => {
 
   return (
     <div className={clsx("flex items-center")}>
-      <button onClick={() => handleClick(prev => !prev)} className="text-2xl absolute top-40  -translate-3 z-20 bg-white">
+      <button onClick={() => handleClick(prev => !prev)} className="text-2xl absolute top-40  -translate-3 z-20 bg-white text-chicago-400">
         {isOpen ? <GoSidebarCollapse /> : <GoSidebarExpand />}
       </button>
       <div className={clsx("flex flex-col justify-between col-span-4 container h-[90vh] overflow-y-scroll border-l border-chicago-100 py-5 relative", isOpen ? "flex" : "hidden")}>

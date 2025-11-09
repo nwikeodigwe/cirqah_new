@@ -109,7 +109,7 @@ const Sidebar = () => {
   };
   return (
     <div className="relative h-[96vh] col-span-3 border-r border-chicago-100 overflow-y-scroll">
-      <div className="sticky top-0 flex items-center container bg-white z-10 py-5">
+      <div className="sticky top-0 flex items-center container bg-chicago-900 text-chicago-100 z-10 py-5">
         <Link to="/">
           <h2 className="text-4xl uppercase font-kd2">Cirqah</h2>
         </Link>

@@ -29,7 +29,7 @@
 
 @layer base {
   body {
-    @apply font-instrument-sans bg-white-green;
+    @apply font-instrument-sans bg-chicago-900 text-chicago-100;
   }
 }
 

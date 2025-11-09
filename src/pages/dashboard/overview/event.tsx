@@ -1,27 +1,24 @@
 import type { Database } from "@/types/database.types";
+import clsx from "clsx";
+import { Link } from "react-router";
 
 interface Props {
   event: Database["public"]["Tables"]["events"]["Row"];
 }
 const Event = ({ event }: Props) => {
   return (
-    <div className="col-span-7 bg-chicago-100/20 rounded-md shadow-md  transition-all duration-150">
-      <div className="h-[210px] bg-chicago-300 rounded-md"></div>
-      <div className="flex items-center justify-between px-2 py-2">
-        <div className="space-y-1">
-          <h4 className="text-sm font-medium">{event.title}.</h4>
-          <p className="text-xs text-chicago-900">{event.venue}</p>
+    <div className={clsx("col-span-7 shadow-md  transition-all duration-150 bg-cover bg-center h-[300px]", `bg-[url('${event.image_url}')]`)}>
+        <div className="space-y-1 align-bottom p-5 bg-gradient-to-t from-black/70 to-transparent h-full flex flex-col justify-end text-white">
+          <h4 className="text-2xl font-medium">{event.title}.</h4>
+          <p className="text-xs text-chicago-100">{event.venue}</p>
           <p className="text-xs font-light">{event.date}</p>
-        </div>
-        <div className="flex flex-col justify-between h-full gap-4">
           <p className="text-xs text-chicago-900">
             Starts from ${event.amount}
           </p>
-          <button className="text-sm rounded-md px-4 py-1 bg-chicago-900 text-white shadow-md">
+           <Link to="#" className="text-sm px-4 py-2 bg-green text-white shadow-md w-fit">
             Buy ticket
-          </button>
+          </Link>
         </div>
-      </div>
     </div>
   );
 };
