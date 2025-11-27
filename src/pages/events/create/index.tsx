@@ -12,6 +12,7 @@ import type { RootState } from "@/store";
 import clsx from "clsx";
 import { file } from "@/services/File";
 import { useNavigate } from "react-router";
+import slugify from "slugify";
 
 const Index = () => {
   const defaultValues = Event.parse({});
@@ -45,6 +46,7 @@ const Index = () => {
         .from("events")
         .insert({
           title: data.title,
+          slug: slugify(data.title),
           event_type: data.event_type,
           date: data.date,
           start_time: data.start_time,
@@ -87,7 +89,9 @@ const Index = () => {
       methods.reset();
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Unknown error";
-      setError(message || "An unexpected error occurred please try again later");
+      setError(
+        message || "An unexpected error occurred please try again later"
+      );
     } finally {
       setIsSubmitting(false);
     }
