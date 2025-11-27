@@ -85,8 +85,9 @@ const Index = () => {
 
       setSuccess("Event and lineup created successfully!");
       methods.reset();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Unknown error";
+      setError(message || "An unexpected error occurred please try again later");
     } finally {
       setIsSubmitting(false);
     }

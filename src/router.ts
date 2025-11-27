@@ -18,6 +18,7 @@ import SDelete from "./pages/dashboard/settings/delete";
 import SPayment from "./pages/dashboard/settings/payment";
 import SAccount from "./pages/dashboard/settings/accounts";
 import SPreference from "./pages/dashboard/settings/preferences";
+
 import NotFound from "./pages/404";
 import Upload from "./pages/dashboard/upload";
 

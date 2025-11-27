@@ -6,10 +6,7 @@ const useGeoLocation = () => {
 
   useEffect(() => {
     async function getGeoLocation() {
-      const url = `${
-        import.meta.env.VITE_SUPABASE_URL
-      }/functions/v1/geo-location
-`;
+      const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/geo-location`;
       const res = await fetch(url);
       const data: Location = await res.json();
       setLocation(data);
